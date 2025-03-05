@@ -1,4 +1,3 @@
-### **README.md**
 ```md
 # Simon Says Game (Blazor)
 
