@@ -26,7 +26,7 @@ dotnet restore
 
 ### 3️⃣ **Run the Application**
 ```sh
-dotnet run
+dotnet watch
 ```
 Then, open a browser and go to:  
 👉 `https://localhost:5001/simon`
