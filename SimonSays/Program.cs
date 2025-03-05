@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+
 using SimonSays.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddSingleton<SimonGameService>();
 
 var app = builder.Build();
 
@@ -28,4 +32,15 @@ app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+var testService = app.Services.GetService<SimonSays.Data.SimonGameService>();
+
+if (testService == null)
+{
+    logger.LogError("SimonGameService is NOT registered!");
+}
+else
+{
+    logger.LogInformation("SimonGameService is successfully registered.");
+}
 app.Run();
