@@ -1,4 +1,3 @@
-```md
 # Simon Says Game (Blazor)
 
 This is a **Simon Says** game built using **Blazor** and **C#**. Players must memorize and repeat an increasing sequence of colors.
